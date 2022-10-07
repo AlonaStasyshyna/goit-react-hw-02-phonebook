@@ -1,8 +1,11 @@
-export const Filter = ({startFilter, handleFilter}) => {
+import PropTypes from 'prop-types';
+import {Label, Input} from '../ContactForm/ContactForm.styled'
+
+export const Filter = ({ startFilter, handleFilter }) => {
     return (
-        <label>
+        <Label>
             Find contacts by name
-            <input
+            <Input
                 type="text"
                 name="filter"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -11,6 +14,11 @@ export const Filter = ({startFilter, handleFilter}) => {
                 value={startFilter}
                 onChange={handleFilter}
             />
-        </label>
+        </Label>
     )
+}
+
+Filter.propTypes = {
+    startFilter: PropTypes.string.isRequired,
+    handleFilter: PropTypes.func.isRequired,
 }
